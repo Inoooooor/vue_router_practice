@@ -7,7 +7,9 @@
       <router-link to="/monkey">Monkey</router-link>
       <router-link to="/fullstackers">Fullstackers</router-link>
     </nav>
-    <router-view></router-view>
+    <transition name="img_changing">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -61,4 +63,21 @@ a {
   text-decoration: none;
 }
 
+.img_changing-enter-active {
+  animation: bounce-in 0.5s;
+}
+.img_changing-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 </style>
